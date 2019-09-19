@@ -133,9 +133,10 @@ void mainLoop(GLFWwindow* window) {
 		glLoadIdentity();
 
 		
-		glOrtho(-2.0, 2.0, -2.0, 2.0, -2.0, 2.0);
+		//glOrtho(-2.0, 2.0, -2.0, 2.0, -100.0, 100.0);
 		//glFrustum(-0.01f, 0.01f, -0.01f, 0.01f, 0.001f, 100.0f);
-		//gluLookAt(2.0f, 2.0f, cameraZ, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+		gluPerspective(45.0f, (float)screenWidth / (float)screenWidth, 0.01, 1000.0);
+		gluLookAt(0.0f, 1.0f, 5.0f + cameraZ, 0.0f, 0.0f, cameraZ, 0.0f, 1.0f, 0.0f);
 
 		glRotatef(rotateY, 0, 1.0, 0);
 		glColor3fv(colors[colorIndex]);
