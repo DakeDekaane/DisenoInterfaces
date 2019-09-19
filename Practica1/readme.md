@@ -1,6 +1,6 @@
-#Práctica 1 "Biblioteca de interfaz (GLFW)"
+# Práctica 1 "Biblioteca de interfaz (GLFW)"
 
-##Instructivo
+## Instructivo
 
 Tecla | Acción
 --------|-----------
