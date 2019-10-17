@@ -33,18 +33,6 @@ double start_time;
 double current_time;
 double speed = 0.01;
 
-//Cube vertices
-GLfloat cube_vertices[8][3] = {
-	{ 0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 0 V0
-	{ -0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 1 V1
-	{ -0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 2 V2
-	{ 0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 3 V3
-	{ 0.5 ,0.5, 0.5 },    //Coordenadas Vértice 4 V4
-	{ 0.5 ,0.5, -0.5 },    //Coordenadas Vértice 5 V5
-	{ -0.5 ,0.5, -0.5 },    //Coordenadas Vértice 6 V6
-	{ -0.5 ,0.5, 0.5 },    //Coordenadas Vértice 7 V7
-};
-
 //Prototypes
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -148,6 +136,21 @@ void mainLoop(GLFWwindow* window) {
 }
 
 void drawCube() {
+
+	//Cube vertices
+GLfloat cube_vertices[8][3] = {
+	{ 0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 0 V0
+	{ -0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 1 V1
+	{ -0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 2 V2
+	{ 0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 3 V3
+	{ 0.5 ,0.5, 0.5 },    //Coordenadas Vértice 4 V4
+	{ 0.5 ,0.5, -0.5 },    //Coordenadas Vértice 5 V5
+	{ -0.5 ,0.5, -0.5 },    //Coordenadas Vértice 6 V6
+	{ -0.5 ,0.5, 0.5 },    //Coordenadas Vértice 7 V7
+};
+
+
+
 	glBegin(GL_POLYGON);	//Front	
 	glNormal3f(0.0f, 0.0f, 1.0f);
 	glVertex3fv(cube_vertices[0]);

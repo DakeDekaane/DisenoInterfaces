@@ -13,37 +13,18 @@ const unsigned int screenHeight = 500;
 //Variables
 GLfloat cameraZ = 0.0f;
 GLfloat rotateY = 0.0f;
-GLint colorIndex = 0;
 
 GLfloat colors[3][3] = {
-	{ 1.0f, 0.0f, 0.0f },
-	{ 0.0f, 1.0f, 0.0f },
-	{ 0.0f, 0.0f, 1.0f }
+	{ 1.0f, 0.0f, 0.0f },	//Rojo
+	{ 0.0f, 1.0f, 0.0f },	//Verde
+	{ 0.0f, 0.0f, 1.0f }	//Azul
 };
 
-enum Direction {
-	NEGATIVE,
-	POSITIVE
-};
-
-enum Direction rotationDir = POSITIVE;
 
 //Animation variables
 double start_time;
 double current_time;
 double speed = 0.01;
-
-//Cube vertices
-GLfloat cube_vertices[8][3] = {
-	{ 0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 0 V0
-	{ -0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 1 V1
-	{ -0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 2 V2
-	{ 0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 3 V3
-	{ 0.5 ,0.5, 0.5 },    //Coordenadas Vértice 4 V4
-	{ 0.5 ,0.5, -0.5 },    //Coordenadas Vértice 5 V5
-	{ -0.5 ,0.5, -0.5 },    //Coordenadas Vértice 6 V6
-	{ -0.5 ,0.5, 0.5 },    //Coordenadas Vértice 7 V7
-};
 
 //Prototypes
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -114,21 +95,13 @@ void mainLoop(GLFWwindow* window) {
 		//processInput(window);
 
 		//Update object values
-		if (rotationDir == POSITIVE) {
-			rotateY += 0.2f;
-			if (rotateY > 360.0f) {
-				rotateY = 0.0f;
-			}
+		rotateY += 0.2f;
+		if (rotateY > 360.0f) {
+			rotateY = 0.0f;
 		}
-		else {
-			rotateY -= 0.2f;
-			if (rotateY < 0.0f) {
-				rotateY = 360.0f;
-			}
-		}
-
+		
 		//Render
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //GL_LINE -> Wire mode
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glLoadIdentity();
 
@@ -139,7 +112,7 @@ void mainLoop(GLFWwindow* window) {
 		gluLookAt(0.0f, 1.0f, 5.0f + cameraZ, 0.0f, 0.0f, cameraZ, 0.0f, 1.0f, 0.0f);
 
 		glRotatef(rotateY, 0, 1.0, 0);
-		glColor3fv(colors[colorIndex]);
+		glColor3fv(colors[0]);
 		drawCube();
 		
 		glfwSwapBuffers(window);
@@ -148,6 +121,19 @@ void mainLoop(GLFWwindow* window) {
 }
 
 void drawCube() {
+
+	//Cube vertices
+	GLfloat cube_vertices[8][3] = {
+		{ 0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 0 V0
+		{ -0.5 ,-0.5, 0.5 },    //Coordenadas Vértice 1 V1
+		{ -0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 2 V2
+		{ 0.5 ,-0.5, -0.5 },    //Coordenadas Vértice 3 V3
+		{ 0.5 ,0.5, 0.5 },    //Coordenadas Vértice 4 V4
+		{ 0.5 ,0.5, -0.5 },    //Coordenadas Vértice 5 V5
+		{ -0.5 ,0.5, -0.5 },    //Coordenadas Vértice 6 V6
+		{ -0.5 ,0.5, 0.5 },    //Coordenadas Vértice 7 V7
+	};
+
 	glBegin(GL_POLYGON);	//Front	
 	glNormal3f(0.0f, 0.0f, 1.0f);
 	glVertex3fv(cube_vertices[0]);
@@ -200,26 +186,4 @@ void drawCube() {
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
-	if (key == GLFW_KEY_W && action == GLFW_PRESS)
-		cameraZ += 1.0f;
-	if (key == GLFW_KEY_S && action == GLFW_PRESS)
-		cameraZ -= 1.0f;
-	if (key == GLFW_KEY_A && action == GLFW_PRESS)
-		rotationDir = POSITIVE;
-	if (key == GLFW_KEY_D && action == GLFW_PRESS)
-		rotationDir = NEGATIVE;
-	if (key == GLFW_KEY_F1 && action == GLFW_PRESS) {
-		if (mods == GLFW_MOD_CONTROL) {
-			colorIndex--;
-		}
-		else {
-			colorIndex++;
-		}
-		if (colorIndex > 2) {
-			colorIndex = 0;
-		}
-		else if (colorIndex < 0) {
-			colorIndex = 2;
-		}
-	}
 }
