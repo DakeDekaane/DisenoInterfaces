@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practica1", "Practica1\Practica1.vcxproj", "{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Colisiones", "Colisiones\Colisiones.vcxproj", "{46719231-84C7-4338-994E-CFC1841FF243}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProyectoBase", "ProyectoBase\ProyectoBase.vcxproj", "{46719231-84C7-4338-994E-CFC1841FF243}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,14 +13,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Debug|x64.ActiveCfg = Debug|Win32
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Debug|x64.Build.0 = Debug|Win32
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Debug|x86.ActiveCfg = Debug|Win32
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Debug|x86.Build.0 = Debug|Win32
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Release|x64.ActiveCfg = Release|x64
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Release|x64.Build.0 = Release|x64
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Release|x86.ActiveCfg = Debug|Win32
-		{BB5991D0-BB6B-4EAE-939B-FD0CD295A251}.Release|x86.Build.0 = Debug|Win32
 		{46719231-84C7-4338-994E-CFC1841FF243}.Debug|x64.ActiveCfg = Debug|x64
 		{46719231-84C7-4338-994E-CFC1841FF243}.Debug|x64.Build.0 = Debug|x64
 		{46719231-84C7-4338-994E-CFC1841FF243}.Debug|x86.ActiveCfg = Debug|Win32
